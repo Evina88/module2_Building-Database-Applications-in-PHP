@@ -1,9 +1,6 @@
 <?php
 require "pdo.php";
-// Demand a GET parameter
-if (!isset($_GET['name']) || strlen($_GET['name']) < 1) {
-    die('Name parameter missing');
-}
+
 $failure = false;  // If we have no POST data
 // If the user requested logout go back to index.php
 if (isset($_POST['logout'])) {
@@ -33,26 +30,12 @@ $stmt = $pdo->query("SELECT make, year, mileage FROM autos");
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<style>
-    th,
-    td {
-        padding: 15px;
-    }
-
-    label {
-        margin-right: 10px;
-        margin-bottom: 5px;
-        width: 50px;
-        display: inline-flex;
-
-    }
-</style>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Evina's Autos Page</title>
+    <title>Evina Mouselimi - Autos Page</title>
 </head>
 
 <body>
