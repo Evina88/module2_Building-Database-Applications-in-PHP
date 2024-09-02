@@ -20,8 +20,6 @@ if (isset($_SESSION['success'])) {
 $salt = 'XyZzy12*_';
 $stored_hash = 'a8609e8d62c043243c4e201cbb342862';  // Pw is meow123
 
-$failure = false;  // If we have no POST data
-
 if (isset($_POST['who']) && isset($_POST['pass'])) {
     $at = '@';
     $check = hash('md5', $salt . $_POST['pass']);
@@ -49,7 +47,6 @@ if (isset($_POST['who']) && isset($_POST['pass'])) {
     if ($check == $stored_hash) {
         error_log("Login success " . $_POST['who']);
         header("Location: autos.php?name=" . urlencode($_POST['who']));
-        return;
     }
 
 }
@@ -65,7 +62,7 @@ if (isset($_SESSION['error'])) {
 <html>
 
 <head>
-    <title>Evina Mouselimi - Login Page</title>
+    <title>Evina Mouselimi - Login </title>
 </head>
 
 <body>
